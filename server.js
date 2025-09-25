@@ -1,8 +1,13 @@
 const express = require("express");
 const app = express();
 const booksRoutes = require("./routes/books");
+const logger = require("./middleware/bookMiddleware");
 
 app.use(express.json());
+
+
+//Middleware
+app.use(logger);
 
 // Routes
 app.use("/books", booksRoutes);
